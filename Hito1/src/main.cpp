@@ -3,7 +3,7 @@
 #include <freertos/task.h>
 #include <esp_log.h>
 
-#define PERIOD_LED_MS 1000
+#define PERIOD_LED_MS 200
 
 // put function declarations here:
 
