@@ -17,7 +17,7 @@ void vDataGeneratorTask(void *pvParameters)
 
         if (xQueueSend(xDataQueue, &dato, 0) != pdTRUE)
         {
-            Serial.println("[WARN] Queue llena – dato descartado");
+            Serial.println("[WARN] Queue llena - dato descartado");
         }
 
         vTaskDelay(pdMS_TO_TICKS(GEN_PERIOD));
@@ -37,11 +37,11 @@ void vUartDisplayTask(void *pvParameters)
 
         /* Vaciar queue e imprimir */
         int count = 0;
-        Serial.println("──── Muestras del último segundo ────");
+        Serial.println("Muestras del último segundo");
 
         while (xQueueReceive(xDataQueue, &dato, 0) == pdTRUE)
         {
-            Serial.printf("  [%2d] %d\n", count + 1, (int)dato);
+            Serial.printf("  [%02d] %d\n", count + 1, (int)dato);
             count++;
         }
 
